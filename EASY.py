@@ -49,16 +49,111 @@ print(arr_random_2, end = "\n\n")
 
 arr_junto = np.intersect1d(arr_random, arr_random_2)
 print(arr_junto, end = "\n\n")
+    
 
-############
+indices_1 = []
+indices_2 = []
+
+for i in range(len(arr_random)):
+    for j in range(len(arr_random_2)):
+        if arr_random[i] == arr_random_2[j]:
+            indices_1.append(i)
+            indices_2.append(j)
+            
+
+indices_1 = np.unique(indices_1)
+indices_2 = np.unique(indices_2)
+
+
+print("Índices da primeira:", indices_1)
+print("Índices da segunda:", indices_2, end="\n\n")
+
+
+novo_array = arr_random
+
+for i in arr_junto:
+    novo_array = np.delete(novo_array, np.where(novo_array == i))
+
+print(novo_array)
+
+
+###################
 
 print("Questão 5", end = "\n\n")
 
-for i in range(arr_random):
-    for j in range(arr_random_2):
-        if arr_random[i] = arr_random_2:
-            ...
-            
+array_horizontal = np.hstack((arr_random, arr_random_2))
+print(array_horizontal)
+
+print("Média: ", np.average(array_horizontal))
+print("Desvio padrão: ", np.std(array_horizontal))
+print("Variância: ", np.var(array_horizontal))
+
+for i in range(len(array_horizontal)):
+    if array_horizontal[i] % 2 == 1:
+        array_horizontal[i] = -1
+    else:
+        array_horizontal[i] = 1
+        
+print(array_horizontal)
+
+
+###################
+
+print("Questão 6", end = "\n\n")
+
+A = np.array([0, 2, 3])
+B = np.array([4, 5, 6])
+
+produto_vetorial = np.cross(A, B)
+
+print("Vetor A:", A)
+print("Vetor B:", B)
+print("Produto vetorial AxB:", produto_vetorial)
+
+
+###################
+
+print("Questão 7", end = "\n\n")
+
+matriz_3x3 = np.array([[1, 0, 3], [0, 3, 2], [6, 2, 0]])
+print("Matriz 3x3:")
+print(matriz_3x3)
+
+identity = np.identity(3)
+print("Identidade:")
+print(identity)
+
+determinante = np.linalg.det(matriz_3x3).round()
+print("Determinante da matriz:")
+print(determinante)
+
+# Calculando a inversa da matriz
+inversa = np.linalg.inv(matriz_3x3)
+print("Matriz Inversa:")
+print(inversa)
+
+# Multiplicando a matriz original pela sua inversa
+produto = np.matmul(matriz_3x3, inversa)
+print("Produto da matriz pela sua inversa:")
+print(produto)
+
+# Verificando se o produto é igual à matriz identidade
+if np.allclose(produto, identity):
+    print("O produto é igual à identidade.")
+else:
+    print("O produto não é igual à identidade.")
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
