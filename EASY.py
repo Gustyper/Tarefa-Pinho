@@ -108,7 +108,7 @@ produto_vetorial = np.cross(A, B)
 
 print("Vetor A:", A)
 print("Vetor B:", B)
-print("Produto vetorial AxB:", produto_vetorial)
+print("Produto vetorial AxB:", produto_vetorial, end = "\n\n")
 
 
 ###################
@@ -117,42 +117,28 @@ print("Questão 7", end = "\n\n")
 
 matriz_3x3 = np.array([[1, 0, 3], [0, 3, 2], [6, 2, 0]])
 print("Matriz 3x3:")
-print(matriz_3x3)
+print(matriz_3x3,  end = "\n\n")
 
-identity = np.identity(3)
+identity = np.identity(3).astype(int)
 print("Identidade:")
-print(identity)
+print(identity,  end = "\n\n")
 
 determinante = np.linalg.det(matriz_3x3).round()
 print("Determinante da matriz:")
-print(determinante)
+print(determinante,  end = "\n\n")
 
-# Calculando a inversa da matriz
 inversa = np.linalg.inv(matriz_3x3)
 print("Matriz Inversa:")
-print(inversa)
+print(inversa,  end = "\n\n")
 
-# Multiplicando a matriz original pela sua inversa
 produto = np.matmul(matriz_3x3, inversa)
 print("Produto da matriz pela sua inversa:")
-print(produto)
+print(np.round(produto).astype(int),  end = "\n\n")
 
-# Verificando se o produto é igual à matriz identidade
 if np.allclose(produto, identity):
     print("O produto é igual à identidade.")
 else:
     print("O produto não é igual à identidade.")
-
-
-
-
-
-
-
-
-
-
-
 
 
 
